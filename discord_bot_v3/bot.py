@@ -6,7 +6,6 @@ from os import getenv, listdir
 from os.path import isfile, join
 from typing import List
 
-
 logging.basicConfig(
     level="INFO",
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -18,7 +17,6 @@ logger = logging.getLogger(__name__)
 # Load sound options into list
 soundFileNames: List[str] = []
 soundOpts: List[List[str]] = []
-soundOptsCount = 0
 for file in listdir("resources"):
     if isfile(join("resources/", file)):
         if len(soundFileNames) < 25:
