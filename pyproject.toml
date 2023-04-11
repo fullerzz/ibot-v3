@@ -16,6 +16,9 @@ python-dotenv = "^1.0.0"
 py-cord = {extras = ["voice"], version = "^2.4.1"}
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
