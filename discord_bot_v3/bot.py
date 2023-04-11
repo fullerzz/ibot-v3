@@ -67,8 +67,7 @@ async def playAudio(ctx: discord.ApplicationContext, soundSelection: str):
             source=f"C:/Users/Zach/Code/Python/discord-bot-v3/resources/{soundSelection}.mp3"
         )
     )
-    await ctx.respond(f"{ctx.author.display_name} has instructed iBot to play {soundSelection}!")
-    await vc.disconnect()
+    await ctx.respond(f"{ctx.author.display_name} has instructed iBot to play {soundSelection}! 🎵 🔊")
 
 
 @bot.slash_command()
