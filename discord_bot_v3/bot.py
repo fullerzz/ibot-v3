@@ -5,6 +5,7 @@ from discord.commands import Option
 from os import getenv, listdir
 from os.path import isfile, join
 from typing import List
+from lol_stats_helper import Summoner
 
 logging.basicConfig(
     level="INFO",
@@ -26,6 +27,8 @@ for file in listdir("resources"):
             soundFileNames.clear()
 soundOpts.append(soundFileNames)
 logger.info(f"soundOpts: {soundOpts}")
+
+summoner = Summoner("Jarrod", "idk", getenv("RIOT_API_KEY"))
 
 bot = discord.AutoShardedBot(intents=discord.Intents.all())
 logger.info("Starting bot")
@@ -82,6 +85,17 @@ async def shutup(ctx: discord.ApplicationContext):
     logger.info(f"VC is connected? {vc.is_connected()}")
     await vc.disconnect(force=True)
     await ctx.respond(f"{ctx.author.display_name} has told iBot to shut up 😔")
+
+
+@bot.slash_command()
+async def check_jarrod_lol_record(ctx: discord.ApplicationContext):
+    await ctx.respond("Coming soon")
+
+
+@bot.event
+async def on_member_update(before: discord.Member, after: discord.Member):
+    if before.display_name == "American Sniper":
+        logger.info(f"Jarrod on_member_update event: {after}")
 
 
 @bot.event
