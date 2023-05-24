@@ -85,6 +85,28 @@ async def shutup(ctx: discord.ApplicationContext):
 
 
 @bot.event
+async def on_message(self, message: discord.Message):
+    if message.author == self.user:
+        return
+    logger.info(f"{message.author.display_name} said {message.content}")
+
+
+@bot.event
+async def on_presence_update(self, before: discord.Member, after: discord.Member):
+    logger.info(f"Before status: {before.status.value}")
+    logger.info(f"Before activity: {before.activity}")
+    logger.info(f"After status: {after.status.value}")
+    logger.info(f"After activity: {after.activity}")
+
+
+@bot.event
+async def on_voice_state_update(member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
+    logger.info(f"{member.display_name} voice state update")
+    logger.info(f"Before: {before}")
+    logger.info(f"After: {after.channel}")
+
+
+@bot.event
 async def on_ready():
     logger.info("Bot is ready")
 
