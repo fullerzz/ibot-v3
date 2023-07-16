@@ -38,6 +38,11 @@ async def hello(ctx, name: str = None):
 
 
 @bot.slash_command()
+async def jarrod(ctx, name: str = None):
+    await ctx.respond("A cool guy who will always have your back. Jarrod's are nice, funny, and fun to be around. Jarrod's tend to be the friend to the chicks, usually not by choice, but when the chicks realize all other guys are dipshits, they come back to the Jarrod, usually because they always treated them right and they have a nice penis. Jarrod's can keep up with any conversation and are usually well rounded in terms of music taste and movie knowledge. Almost always a jack of all trades, they will try anything and generally be successful at whatever they try. For example, Jarrods may not be the all-state quarterback, but they will make all region at whatever position they play. They may not be the unholy manifestation of skills at Modern Warefare, but they'll play well with a good kill/death ratio. Jarrod's usually dont like to fight, but if the shit goes down a Jarrod will punch faces like a coked out Chuck Norris in the middle of a ninja convention. Overall, Jarrod's are good to have around. They won't let you down")
+
+
+@bot.slash_command()
 async def sound(
     ctx: discord.ApplicationContext,
     selection: Option(str, "Sound to be played", choices=soundOpts[0], required=True),
